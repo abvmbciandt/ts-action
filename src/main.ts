@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import { wait } from './wait'
+import { tst } from './tst'
 
 /**
  * The main function for the action.
@@ -7,6 +8,11 @@ import { wait } from './wait'
  */
 export async function run(): Promise<void> {
   try {
+    if (tst()){
+      core.log("tst OKI")
+    }else{
+      core.log("FAIL")
+    }
     const ms: string = core.getInput('milliseconds')
 
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
