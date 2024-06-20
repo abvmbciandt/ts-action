@@ -60,11 +60,6 @@ describe('action', () => {
       3,
       expect.stringMatching(timeRegex)
     )
-    expect(setOutputMock).toHaveBeenNthCalledWith(
-      1,
-      'time',
-      expect.stringMatching(timeRegex)
-    )
     expect(errorMock).not.toHaveBeenCalled()
   })
 

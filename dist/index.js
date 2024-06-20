@@ -24960,19 +24960,23 @@ const tst_1 = __nccwpck_require__(8008);
 async function run() {
     try {
         const ms = core.getInput('milliseconds');
+        const path = core.getInput('filepath');
+        var message = '';
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-        if ((0, tst_1.tst)('./README.md')) {
+        if ((0, tst_1.tst)(`${path}`)) {
             core.debug(`Waiting ${ms} milliseconds ... OK`);
+            message = 'OK';
         }
         else {
             core.debug(`Waiting ${ms} milliseconds ... NOK`);
+            message = 'NOK';
         }
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(new Date().toTimeString());
         // Set outputs for other workflow steps to use
-        core.setOutput('time', new Date().toTimeString());
+        core.setOutput('time', message);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
