@@ -24952,12 +24952,19 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const wait_1 = __nccwpck_require__(5259);
+const tst_1 = __nccwpck_require__(8008);
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
 async function run() {
     try {
+        if ((0, tst_1.tst)()) {
+            core.debug('tst OKI');
+        }
+        else {
+            core.debug('FAIL');
+        }
         const ms = core.getInput('milliseconds');
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
         core.debug(`Waiting ${ms} milliseconds ...`);
@@ -24975,6 +24982,22 @@ async function run() {
     }
 }
 exports.run = run;
+
+
+/***/ }),
+
+/***/ 8008:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.tst = void 0;
+function tst() {
+    console.log('run');
+    return true;
+}
+exports.tst = tst;
 
 
 /***/ }),

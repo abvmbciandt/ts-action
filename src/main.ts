@@ -9,9 +9,9 @@ import { tst } from './tst'
 export async function run(): Promise<void> {
   try {
     if (tst()) {
-      core.log('tst OKI')
+      core.debug('tst OKI')
     } else {
-      core.log('FAIL')
+      core.debug('FAIL')
     }
     const ms: string = core.getInput('milliseconds')
 
