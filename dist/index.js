@@ -24959,15 +24959,14 @@ const tst_1 = __nccwpck_require__(8008);
  */
 async function run() {
     try {
+        const ms = core.getInput('milliseconds');
+        // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
         if ((0, tst_1.tst)()) {
-            core.debug('tst OKI');
+            core.debug(`Waiting ${ms} milliseconds ...`);
         }
         else {
             core.debug('FAIL');
         }
-        const ms = core.getInput('milliseconds');
-        // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-        core.debug(`Waiting ${ms} milliseconds ...`);
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
