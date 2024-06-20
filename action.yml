@@ -16,7 +16,7 @@ inputs:
   filepath:
     description: 'Your input description here'
     required: false
-    default: '../README.md'
+    default: './README.md'
 
 # Define your outputs here.
 outputs:
