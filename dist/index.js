@@ -24961,7 +24961,7 @@ async function run() {
     try {
         const ms = core.getInput('milliseconds');
         const path = core.getInput('filepath');
-        var message = '';
+        var message = 'placeholder';
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
         if ((0, tst_1.tst)(`${path}`)) {
             core.debug(`Waiting ${ms} milliseconds ... OK`);
@@ -24971,13 +24971,13 @@ async function run() {
             core.debug(`Waiting ${ms} milliseconds ... NOK`);
             message = 'NOK';
         }
+        core.setOutput('result', message);
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(new Date().toTimeString());
         console.log('test');
         // Set outputs for other workflow steps to use
-        core.setOutput('result', message);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
