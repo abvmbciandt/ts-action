@@ -8,10 +8,10 @@ import { tst } from './tst'
  */
 export async function run(): Promise<void> {
   try {
-    if (tst()){
-      core.log("tst OKI")
-    }else{
-      core.log("FAIL")
+    if (tst()) {
+      core.log('tst OKI')
+    } else {
+      core.log('FAIL')
     }
     const ms: string = core.getInput('milliseconds')
 

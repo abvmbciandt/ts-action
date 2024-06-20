@@ -1,4 +1,4 @@
 export function tst() {
-    console.log("run")
-    return true
+  console.log('run')
+  return true
 }
