@@ -24962,10 +24962,10 @@ async function run() {
         const ms = core.getInput('milliseconds');
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
         if ((0, tst_1.tst)('./README.md')) {
-            core.debug(`Waiting ${ms} milliseconds ...`);
+            core.debug(`Waiting ${ms} milliseconds ... OK`);
         }
         else {
-            core.debug(`Waiting ${ms} milliseconds ...`);
+            core.debug(`Waiting ${ms} milliseconds ... NOK`);
         }
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
@@ -24997,7 +24997,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.tst = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 function tst(filepath) {
-    console.log('checking file');
     fs_1.default.stat(filepath, exists => {
         if (exists == null) {
             return true;

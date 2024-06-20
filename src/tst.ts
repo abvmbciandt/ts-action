@@ -1,7 +1,6 @@
 import fs, { PathLike } from 'fs'
 
 export function tst(filepath: PathLike): boolean {
-  console.log('checking file')
   fs.stat(filepath, exists => {
     if (exists == null) {
       return true

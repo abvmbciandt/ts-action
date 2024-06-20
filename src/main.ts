@@ -12,9 +12,9 @@ export async function run(): Promise<void> {
 
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
     if (tst('./README.md')) {
-      core.debug(`Waiting ${ms} milliseconds ...`)
+      core.debug(`Waiting ${ms} milliseconds ... OK`)
     } else {
-      core.debug(`Waiting ${ms} milliseconds ...`)
+      core.debug(`Waiting ${ms} milliseconds ... NOK`)
     }
 
     // Log the current timestamp, wait, then log the new timestamp
