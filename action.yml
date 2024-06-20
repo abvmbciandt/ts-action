@@ -20,7 +20,7 @@ inputs:
 
 # Define your outputs here.
 outputs:
-  time:
+  result:
     description: 'Your output description here'
 
 runs:

@@ -24976,7 +24976,7 @@ async function run() {
         await (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(new Date().toTimeString());
         // Set outputs for other workflow steps to use
-        core.setOutput('time', message);
+        core.setOutput('result', message);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
