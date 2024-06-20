@@ -24975,6 +24975,7 @@ async function run() {
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(new Date().toTimeString());
+        console.log('test');
         // Set outputs for other workflow steps to use
         core.setOutput('result', message);
     }
