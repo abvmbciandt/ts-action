@@ -25006,15 +25006,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.tst = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 function tst(filepath) {
-    fs_1.default.stat(filepath, exists => {
-        if (exists == null) {
-            return true;
-        }
-        else if (exists.code === 'ENOENT') {
-            return false;
-        }
-    });
-    return false;
+    console.log(filepath);
+    if (fs_1.default.existsSync(filepath)) {
+        console.log('exists');
+        return true;
+    }
+    else {
+        console.log('fail');
+        return false;
+    }
 }
 exports.tst = tst;
 
