@@ -25006,19 +25006,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.tst = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 function tst(filepath) {
-    console.log(filepath);
-    var testFolder = './';
-    fs_1.default.readdir(testFolder, (err, files) => {
-        files.forEach(file => {
-            console.log(file);
-        });
-    });
     if (fs_1.default.existsSync(filepath)) {
-        console.log('exists');
         return true;
     }
     else {
-        console.log('fail');
         return false;
     }
 }
