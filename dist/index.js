@@ -25007,12 +25007,35 @@ exports.tst = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 function tst(filepath) {
     console.log(filepath);
-    const testFolder = '../../../';
+    console.log('-----------------------------------');
+    var testFolder = '../../../';
     fs_1.default.readdir(testFolder, (err, files) => {
         files.forEach(file => {
             console.log(file);
         });
     });
+    console.log('-----------------------------------');
+    testFolder = '../../';
+    fs_1.default.readdir(testFolder, (err, files) => {
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+    console.log('-----------------------------------');
+    testFolder = '../';
+    fs_1.default.readdir(testFolder, (err, files) => {
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+    console.log('-----------------------------------');
+    testFolder = './';
+    fs_1.default.readdir(testFolder, (err, files) => {
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+    console.log('-----------------------------------');
     if (fs_1.default.existsSync(filepath)) {
         console.log('exists');
         return true;
