@@ -24960,19 +24960,28 @@ const tst_1 = __nccwpck_require__(8008);
 async function run() {
     try {
         const ms = core.getInput('milliseconds');
+        const path = core.getInput('filepath');
+        var message = 'placeholder';
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-        if ((0, tst_1.tst)()) {
-            core.debug(`Waiting ${ms} milliseconds ...`);
+        if ((0, tst_1.tst)(`${path}`)) {
+            core.debug(`Waiting ${ms} milliseconds ... OK`);
+            message = 'OK';
         }
         else {
-            core.debug('FAIL');
+            core.debug(`Waiting ${ms} milliseconds ... NOK`);
+            message = 'NOK';
         }
+        const os = __nccwpck_require__(2037);
+        const fs = __nccwpck_require__(7147);
+        var key = 'result';
+        const output = process.env['GITHUB_OUTPUT'];
+        fs.appendFileSync(output, `${key}=${message}${os.EOL}`);
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
         core.debug(new Date().toTimeString());
+        console.log('test');
         // Set outputs for other workflow steps to use
-        core.setOutput('time', new Date().toTimeString());
     }
     catch (error) {
         // Fail the workflow run if an error occurs
@@ -24986,15 +24995,26 @@ exports.run = run;
 /***/ }),
 
 /***/ 8008:
-/***/ ((__unused_webpack_module, exports) => {
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.tst = void 0;
-function tst() {
-    console.log('run');
-    return true;
+const fs_1 = __importDefault(__nccwpck_require__(7147));
+function tst(filepath) {
+    fs_1.default.stat(filepath, exists => {
+        if (exists == null) {
+            return true;
+        }
+        else if (exists.code === 'ENOENT') {
+            return false;
+        }
+    });
+    return false;
 }
 exports.tst = tst;
 
