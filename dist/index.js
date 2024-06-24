@@ -24963,7 +24963,7 @@ async function run() {
         const path = core.getInput('filepath');
         var message = 'placeholder';
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-        if ((0, tst_1.tst)(`../${path}`)) {
+        if ((0, tst_1.tst)(`${path}`)) {
             core.debug(`Waiting ${ms} milliseconds ... OK`);
             message = 'OK';
         }
@@ -25007,35 +25007,12 @@ exports.tst = void 0;
 const fs_1 = __importDefault(__nccwpck_require__(7147));
 function tst(filepath) {
     console.log(filepath);
-    console.log('-----------------------------------');
-    var testFolder = '../../../';
+    var testFolder = './';
     fs_1.default.readdir(testFolder, (err, files) => {
         files.forEach(file => {
             console.log(file);
         });
     });
-    console.log('-----------------------------------');
-    testFolder = '../../';
-    fs_1.default.readdir(testFolder, (err, files) => {
-        files.forEach(file => {
-            console.log(file);
-        });
-    });
-    console.log('-----------------------------------');
-    testFolder = '../';
-    fs_1.default.readdir(testFolder, (err, files) => {
-        files.forEach(file => {
-            console.log(file);
-        });
-    });
-    console.log('-----------------------------------');
-    testFolder = './';
-    fs_1.default.readdir(testFolder, (err, files) => {
-        files.forEach(file => {
-            console.log(file);
-        });
-    });
-    console.log('-----------------------------------');
     if (fs_1.default.existsSync(filepath)) {
         console.log('exists');
         return true;

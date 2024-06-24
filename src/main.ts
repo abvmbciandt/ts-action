@@ -13,7 +13,7 @@ export async function run(): Promise<void> {
     const path: PathLike = core.getInput('filepath')
     var message: string = 'placeholder'
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    if (tst(`../${path}`)) {
+    if (tst(`${path}`)) {
       core.debug(`Waiting ${ms} milliseconds ... OK`)
       message = 'OK'
     } else {
