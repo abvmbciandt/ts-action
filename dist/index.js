@@ -24963,7 +24963,7 @@ async function run() {
         const path = core.getInput('filepath');
         var message = 'placeholder';
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-        if ((0, tst_1.tst)(`${path}`)) {
+        if ((0, tst_1.tst)(`../${path}`)) {
             core.debug(`Waiting ${ms} milliseconds ... OK`);
             message = 'OK';
         }
