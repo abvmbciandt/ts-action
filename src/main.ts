@@ -20,7 +20,11 @@ export async function run(): Promise<void> {
       core.debug(`Waiting ${ms} milliseconds ... NOK`)
       message = 'NOK'
     }
-    core.setOutput('result', message)
+    const os = require('os')
+    const fs = require('fs')
+    var key: string = 'result'
+    const output = process.env['GITHUB_OUTPUT']
+    fs.appendFileSync(output, `${key}=${message}${os.EOL}`)
     // Log the current timestamp, wait, then log the new timestamp
     core.debug(new Date().toTimeString())
     await wait(parseInt(ms, 10))

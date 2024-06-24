@@ -24971,7 +24971,11 @@ async function run() {
             core.debug(`Waiting ${ms} milliseconds ... NOK`);
             message = 'NOK';
         }
-        core.setOutput('result', message);
+        const os = __nccwpck_require__(2037);
+        const fs = __nccwpck_require__(7147);
+        var key = 'result';
+        const output = process.env['GITHUB_OUTPUT'];
+        fs.appendFileSync(output, `${key}=${message}${os.EOL}`);
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
         await (0, wait_1.wait)(parseInt(ms, 10));
