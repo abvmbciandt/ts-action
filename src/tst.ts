@@ -2,7 +2,7 @@ import fs, { PathLike } from 'fs'
 
 export function tst(filepath: PathLike): boolean {
   console.log(filepath)
-  const testFolder = '../../'
+  const testFolder = '../../../'
 
   fs.readdir(testFolder, (err, files) => {
     files.forEach(file => {
