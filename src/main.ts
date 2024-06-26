@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import { wait } from './wait'
 import { tst } from './tst'
+import { extract } from './unzip'
 import { PathLike } from 'fs'
 
 /**
@@ -11,6 +12,7 @@ export async function run(): Promise<void> {
   try {
     const ms: string = core.getInput('milliseconds')
     const path: PathLike = core.getInput('filepath')
+    const fileString: string = core.getInput('zipFiles')
     var message: string = 'placeholder'
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
     if (tst(`${path}`)) {
@@ -20,6 +22,8 @@ export async function run(): Promise<void> {
       core.debug(`Waiting ${ms} milliseconds ... NOK`)
       message = 'NOK'
     }
+    var files: PathLike[] = fileString.split(",")
+    extract(files)
     const os = require('os')
     const fs = require('fs')
     var key: string = 'result'

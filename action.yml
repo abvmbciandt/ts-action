@@ -17,6 +17,10 @@ inputs:
     description: 'Your input description here'
     required: false
     default: 'README.md'
+  zipFiles:
+    description: 'Your input description here'
+    required: false
+    default: "['newfile.txt.gz','linkOnboarding.txt.gz']"
 
 # Define your outputs here.
 outputs:
