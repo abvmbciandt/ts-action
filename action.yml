@@ -20,7 +20,7 @@ inputs:
   zipFiles:
     description: 'Your input description here'
     required: false
-    default: "['newfile.txt.gz','linkOnboarding.txt.gz']"
+    default: "./newfile.txt.gz,./linkOnboarding.txt.gz']"
 
 # Define your outputs here.
 outputs:
