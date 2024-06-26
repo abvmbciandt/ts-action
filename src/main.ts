@@ -23,7 +23,7 @@ export async function run(): Promise<void> {
       message = 'NOK'
     }
     console.log(`${fileString}`)
-    var files: PathLike[] = fileString.split(",")
+    var files: PathLike[] = fileString.split(',')
     extract(files)
     const os = require('os')
     const fs = require('fs')

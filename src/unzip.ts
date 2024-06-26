@@ -1,6 +1,6 @@
-import { PathLike } from "fs"
+import { PathLike } from 'fs'
 
-export function extract(files:PathLike[]): void {
+export function extract(files: PathLike[]): void {
   const tar = require('tar')
   for (var file of files) {
     console.log(`${file}`)
