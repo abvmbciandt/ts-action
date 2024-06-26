@@ -22,6 +22,7 @@ export async function run(): Promise<void> {
       core.debug(`Waiting ${ms} milliseconds ... NOK`)
       message = 'NOK'
     }
+    console.log(`${fileString}`)
     var files: PathLike[] = fileString.split(",")
     extract(files)
     const os = require('os')
